@@ -663,140 +663,148 @@
         </div>
 
         <!-- Annotation Module Tab -->
-        <!-- 1. Topic Synthesizer -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Topic Synthesizer <span class="badge badge-success">Self-Initiated</span></h3>
-                <button class="btn btn-primary" onclick="showModal('topic-synthesizer-modal')">Generate Summary</button>
-            </div>
-            <div class="annotation-container">
-                <p>Let AI quickly distill the core concepts and key points of this topic:</p>
-                <!-- summary output will be injected here -->
-                <div id="topic-summary" class="hint-box" style="display:none;"></div>
-            </div>
-        </div>
+        <div id="annotation" class="tab-content module-annotation">
+            <h2>Annotation Module</h2>
 
-        <!-- Modal for Topic Synthesizer -->
-        <div id="topic-synthesizer-modal" class="modal" onclick="hideModal('topic-synthesizer-modal')">
-            <div class="modal-content" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <h4 class="modal-title">Generate Topic Summary</h4>
-                    <button class="close-modal" onclick="hideModal('topic-synthesizer-modal')">&times;</button>
+            <!-- 1. Topic Synthesizer -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Topic Synthesizer <span class="badge badge-success">Self-Initiated</span>
+                    </h3>
+                    <button class="btn btn-primary" onclick="showModal('topic-synthesizer-modal')">Generate
+                        Summary</button>
                 </div>
-                <p>Analyze the current topic and produce 3–5 key points.</p>
-                <button class="btn btn-primary" onclick="generateTopicSummary()">Run AI</button>
+                <div class="annotation-container">
+                    <p>Let AI quickly distill the core concepts and key points of this topic:</p>
+                    <!-- summary output will be injected here -->
+                    <div id="topic-summary" class="hint-box" style="display:none;"></div>
+                </div>
             </div>
-        </div>
 
-        <!-- 2. Text Annotations Guider -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Text Annotations Guider <span class="badge badge-warning">Structured</span></h3>
-            </div>
-            <div class="annotation-container">
-                <p>Use the prompts below to craft a meaningful annotation:</p>
-                <div class="input-group">
-                    <div class="annotation-prompt">What does this mean?</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <div class="input-group">
-                    <div class="annotation-prompt">Why is this important?</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <div class="input-group">
-                    <div class="annotation-prompt">How can I apply this?</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <button class="btn btn-primary">Save Structured Annotation</button>
-            </div>
-        </div>
-
-        <!-- 3. Explain Like I’m 5 Tool -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Explain Like I’m 5 <span class="badge badge-warning">AI-Assisted</span></h3>
-                <button class="btn btn-accent" onclick="showModal('eli5-modal')">Explain</button>
-            </div>
-            <div class="annotation-container">
-                <p>Select any annotation or text section, then click “Explain” to see a simplified version below:</p>
-                <div id="eli5-output" class="annotation-text" style="display:none;"></div>
-            </div>
-        </div>
-
-        <!-- Modal for ELI5 -->
-        <div id="eli5-modal" class="modal" onclick="hideModal('eli5-modal')">
-            <div class="modal-content" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <h4 class="modal-title">Explain Like I’m 5</h4>
-                    <button class="close-modal" onclick="hideModal('eli5-modal')">&times;</button>
-                </div>
-                <p>Generate a simple, analogy-rich explanation for the selected text.</p>
-                <button class="btn btn-primary" onclick="generateELI5()">Run AI</button>
-            </div>
-        </div>
-
-        <!-- 4. SQCP-Based Annotator -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">SQCP Annotator <span class="badge badge-success">Self-Initiated</span></h3>
-            </div>
-            <div class="annotation-container">
-                <div class="input-group">
-                    <div class="annotation-prompt">S: Summarize</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <div class="input-group">
-                    <div class="annotation-prompt">Q: Questions</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <div class="input-group">
-                    <div class="annotation-prompt">C: Clarify</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <div class="input-group">
-                    <div class="annotation-prompt">P: Predict</div>
-                    <textarea class="text-area"></textarea>
-                </div>
-                <button class="btn btn-primary">Save SQCP Annotation</button>
-            </div>
-        </div>
-
-        <!-- 5. Group Annotations with Discussions Tool -->
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Group Annotations & Discussions <span
-                        class="badge badge-success">Self-Initiated</span></h3>
-                <button class="btn btn-primary" onclick="showModal('group-annotations-modal')">Start Discussion</button>
-            </div>
-            <div class="annotation-container">
-                <h4>Active Discussion Threads</h4>
-                <!-- Example thread -->
-                <div class="review-item">
-                    <div class="review-item-icon">
-                        <!-- SVG icon -->
+            <!-- Modal for Topic Synthesizer -->
+            <div id="topic-synthesizer-modal" class="modal" onclick="hideModal('topic-synthesizer-modal')">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Generate Topic Summary</h4>
+                        <button class="close-modal" onclick="hideModal('topic-synthesizer-modal')">&times;</button>
                     </div>
-                    <div>
-                        <div><strong>Best way to factor x²+5x+6</strong></div>
-                        <div class="text-muted">4 comments · 2 votes</div>
+                    <p>Analyze the current topic and produce 3–5 key points.</p>
+                    <button class="btn btn-primary" onclick="generateTopicSummary()">Run AI</button>
+                </div>
+            </div>
+
+            <!-- 2. Text Annotations Guider -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Text Annotations Guider <span class="badge badge-warning">Structured</span>
+                    </h3>
+                </div>
+                <div class="annotation-container">
+                    <p>Use the prompts below to craft a meaningful annotation:</p>
+                    <div class="input-group">
+                        <div class="annotation-prompt">What does this mean?</div>
+                        <textarea class="text-area"></textarea>
                     </div>
-                    <button class="btn btn-secondary">Join</button>
+                    <div class="input-group">
+                        <div class="annotation-prompt">Why is this important?</div>
+                        <textarea class="text-area"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <div class="annotation-prompt">How can I apply this?</div>
+                        <textarea class="text-area"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Save Structured Annotation</button>
+                </div>
+            </div>
+
+            <!-- 3. Explain Like I’m 5 Tool -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Explain Like I’m 5 <span class="badge badge-warning">AI-Assisted</span></h3>
+                    <button class="btn btn-accent" onclick="showModal('eli5-modal')">Explain</button>
+                </div>
+                <div class="annotation-container">
+                    <p>Select any annotation or text section, then click “Explain” to see a simplified version below:
+                    </p>
+                    <div id="eli5-output" class="annotation-text" style="display:none;"></div>
+                </div>
+            </div>
+
+            <!-- Modal for ELI5 -->
+            <div id="eli5-modal" class="modal" onclick="hideModal('eli5-modal')">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Explain Like I’m 5</h4>
+                        <button class="close-modal" onclick="hideModal('eli5-modal')">&times;</button>
+                    </div>
+                    <p>Generate a simple, analogy-rich explanation for the selected text.</p>
+                    <button class="btn btn-primary" onclick="generateELI5()">Run AI</button>
+                </div>
+            </div>
+
+            <!-- 4. SQCP-Based Annotator -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">SQCP Annotator <span class="badge badge-success">Self-Initiated</span></h3>
+                </div>
+                <div class="annotation-container">
+                    <div class="input-group">
+                        <div class="annotation-prompt">S: Summarize</div>
+                        <textarea class="text-area"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <div class="annotation-prompt">Q: Questions</div>
+                        <textarea class="text-area"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <div class="annotation-prompt">C: Clarify</div>
+                        <textarea class="text-area"></textarea>
+                    </div>
+                    <div class="input-group">
+                        <div class="annotation-prompt">P: Predict</div>
+                        <textarea class="text-area"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Save SQCP Annotation</button>
+                </div>
+            </div>
+
+            <!-- 5. Group Annotations with Discussions Tool -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Group Annotations & Discussions <span
+                            class="badge badge-success">Self-Initiated</span></h3>
+                    <button class="btn btn-primary" onclick="showModal('group-annotations-modal')">Start
+                        Discussion</button>
+                </div>
+                <div class="annotation-container">
+                    <h4>Active Discussion Threads</h4>
+                    <!-- Example thread -->
+                    <div class="review-item">
+                        <div class="review-item-icon">
+                            <!-- SVG icon -->
+                        </div>
+                        <div>
+                            <div><strong>Best way to factor x²+5x+6</strong></div>
+                            <div class="text-muted">4 comments · 2 votes</div>
+                        </div>
+                        <button class="btn btn-secondary">Join</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Group Annotations -->
+            <div id="group-annotations-modal" class="modal" onclick="hideModal('group-annotations-modal')">
+                <div class="modal-content" onclick="event.stopPropagation()">
+                    <div class="modal-header">
+                        <h4 class="modal-title">New Group Annotation</h4>
+                        <button class="close-modal" onclick="hideModal('group-annotations-modal')">&times;</button>
+                    </div>
+                    <p>Start a collaborative discussion—add your annotation and invite peers to comment.</p>
+                    <textarea class="text-area" placeholder="Your opening annotation..."></textarea>
+                    <button class="btn btn-primary">Create Thread</button>
                 </div>
             </div>
         </div>
-
-        <!-- Modal for Group Annotations -->
-        <div id="group-annotations-modal" class="modal" onclick="hideModal('group-annotations-modal')">
-            <div class="modal-content" onclick="event.stopPropagation()">
-                <div class="modal-header">
-                    <h4 class="modal-title">New Group Annotation</h4>
-                    <button class="close-modal" onclick="hideModal('group-annotations-modal')">&times;</button>
-                </div>
-                <p>Start a collaborative discussion—add your annotation and invite peers to comment.</p>
-                <textarea class="text-area" placeholder="Your opening annotation..."></textarea>
-                <button class="btn btn-primary">Create Thread</button>
-            </div>
-        </div>
-
 
         <!-- Homework Module Tab -->
         <div id="homework" class="tab-content module-homework">
